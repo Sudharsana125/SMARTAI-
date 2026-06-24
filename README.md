@@ -20,89 +20,12 @@ A production-ready **Generative AI** customer support chatbot powered by **RAG (
 
 ---
 
-## 📁 Project Structure
-
-```
-intelligent_customer_support_chatbot/
-│
-├── app.py                          ← Streamlit frontend (run this)
-├── requirements.txt                ← All Python dependencies
-├── .env.example                    ← Copy to .env and fill in API key
-├── README.md
-│
-├── data/
-│   ├── company_docs/               ← Place your knowledge-base files here
-│   │   ├── faq.txt
-│   │   ├── return_refund_policy.txt
-│   │   └── product_catalog.txt
-│   └── vector_db/                  ← ChromaDB auto-creates files here
-│
-├── src/
-│   ├── __init__.py
-│   ├── utils.py                    ← Shared helpers, logging, validation
-│   ├── document_loader.py          ← PDF / DOCX / TXT text extraction
-│   ├── text_splitter.py            ← Chunk documents for embedding
-│   ├── embeddings.py               ← SentenceTransformers wrapper
-│   ├── vector_store.py             ← ChromaDB wrapper (store + search)
-│   ├── retriever.py                ← Top-K retrieval + context builder
-│   ├── multilingual.py             ← Language detection + LLM instruction
-│   ├── rag_pipeline.py             ← Core RAG + LLM generation logic
-│   └── chatbot.py                  ← High-level facade (used by app.py)
-│
-├── docs/
-│   ├── architecture.md             ← Mermaid diagrams (data flow, RAG, use cases)
-│   ├── user_manual.md              ← End-user guide with examples
-│   └── technical_documentation.md  ← Developer reference + deployment
-│
-└── tests/
-    └── test_chatbot.py             ← Pytest unit tests (no API key needed)
-```
-
----
-
 ## ⚡ Quick Setup (Windows — Your Environment)
 
 ### Prerequisites
 - Python 3.11 or higher
 - An OpenAI API key from [platform.openai.com](https://platform.openai.com) (or Anthropic key)
 
-### Step-by-Step
-
-**Step 1 — Open terminal in your project folder**
-```
-C:\Users\sudha\chatbot>
-```
-
-**Step 2 — Create and activate a virtual environment**
-```bash
-python -m venv venv
-venv\Scripts\activate
-```
-You should see `(venv)` in your prompt.
-
-**Step 3 — Install all dependencies**
-```bash
-pip install -r requirements.txt
-```
-> ⏳ First install takes 3–5 minutes (downloads embedding model ~120 MB)
-
-**Step 4 — Create your `.env` file**
-```bash
-copy .env.example .env
-```
-Then open `.env` in any text editor and fill in:
-```
-LLM_PROVIDER=openai
-OPENAI_API_KEY=sk-your-actual-key-here
-```
-
-**Step 5 — Run the chatbot**
-```bash
-streamlit run app.py
-```
-Browser opens automatically at **http://localhost:8501** 🎉
-
----
 
 ## 🚀 First Run Demo
 
@@ -127,39 +50,6 @@ Browser opens automatically at **http://localhost:8501** 🎉
 
 ---
 
-## 🔧 Configuration Options
-
-Edit your `.env` file:
-
-```bash
-# Choose provider: "openai" or "anthropic"
-LLM_PROVIDER=openai
-
-# OpenAI
-OPENAI_API_KEY=sk-...
-
-# Anthropic (alternative)
-ANTHROPIC_API_KEY=sk-ant-...
-```
-
-To use **Anthropic Claude** instead of OpenAI:
-```bash
-LLM_PROVIDER=anthropic
-ANTHROPIC_API_KEY=sk-ant-your-key-here
-```
-
----
-
-## 🧪 Running Tests
-
-```bash
-pytest tests/ -v
-```
-
-All tests use mocks — **no API key required** to run tests.
-
----
-
 ## 📊 Architecture Summary
 
 ```
@@ -179,37 +69,6 @@ LLM Call (GPT-4o / Claude) with Chat History
     ↓
 Grounded Answer + Source Citations
 ```
-
-See [`docs/architecture.md`](docs/architecture.md) for full Mermaid diagrams.
-
----
-
-## 📚 Documentation
-
-| Document | Description |
-|----------|-------------|
-| [User Manual](docs/user_manual.md) | How to use the chatbot (with example conversations) |
-| [Architecture](docs/architecture.md) | System diagrams — data flow, RAG, use cases |
-| [Technical Docs](docs/technical_documentation.md) | Module reference, extension guide, deployment |
-
----
-
-## 🌐 Deployment Options
-
-### Streamlit Community Cloud (Free)
-1. Push to a public GitHub repo
-2. Visit [share.streamlit.io](https://share.streamlit.io)
-3. Connect repo → set main file as `app.py`
-4. Add `OPENAI_API_KEY` in Secrets
-5. Deploy!
-
-### Docker
-```bash
-docker build -t chatbot .
-docker run -p 8501:8501 --env-file .env chatbot
-```
-
----
 
 ## 🛠️ Tech Stack
 
