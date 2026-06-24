@@ -1,0 +1,111 @@
+SHOPEASY ONLINE STORE — FREQUENTLY ASKED QUESTIONS
+
+About ShopEasy
+ShopEasy is an online retail company founded in 2019, specializing in electronics,
+home appliances, and fashion accessories. We ship to over 25 countries and serve
+more than 2 million customers worldwide. Our mission is to make online shopping
+fast, affordable, and trustworthy.
+
+ORDERS
+
+Q: How do I place an order?
+A: Browse our catalog, add items to your cart, and proceed to checkout. You can pay
+using credit/debit cards, UPI, net banking, or PayPal. Once payment is confirmed,
+you will receive an order confirmation email within 5 minutes.
+
+Q: Can I modify or cancel my order after placing it?
+A: Orders can be modified or cancelled within 1 hour of placement, as long as the
+order has not yet been processed for shipping. To cancel, go to "My Orders" in your
+account dashboard and click "Cancel Order." After 1 hour, please contact support
+directly, and we will try our best to accommodate your request before dispatch.
+
+Q: How can I track my order?
+A: Once your order ships, you will receive a tracking number via email and SMS.
+You can also track your order anytime by logging into your account and visiting
+the "My Orders" section.
+
+SHIPPING
+
+Q: What are the shipping charges?
+A: Shipping is FREE for orders above ₹999 (or $15 USD equivalent). For orders
+below this amount, a flat shipping fee of ₹49 ($1.50 USD) applies. Express
+shipping (1-2 business days) is available for an additional ₹199 ($3 USD).
+
+Q: How long does delivery take?
+A: Standard delivery takes 3-7 business days depending on your location.
+Metro cities typically receive orders within 3-4 business days, while remote
+areas may take 5-7 business days. International orders take 7-14 business days.
+
+Q: Do you ship internationally?
+A: Yes, we currently ship to 25+ countries including the USA, UK, Canada,
+Australia, UAE, and most of the European Union. International shipping rates
+and delivery times vary by destination and are calculated at checkout.
+
+RETURNS AND REFUNDS
+
+Q: What is your return policy?
+A: We offer a 30-day return policy from the date of delivery. Items must be
+unused, in their original packaging, and accompanied by the original invoice.
+Certain categories like innerwear, perishables, and personalized items are
+non-returnable for hygiene and customization reasons.
+
+Q: How do I initiate a return?
+A: Go to "My Orders," select the item you wish to return, choose "Return Item,"
+and select a reason. Our courier partner will pick up the item from your address
+within 2-3 business days at no extra cost.
+
+Q: When will I receive my refund?
+A: Refunds are processed within 5-7 business days after we receive and inspect
+the returned item. The amount is credited to your original payment method.
+For Cash on Delivery orders, refunds are issued via bank transfer.
+
+Q: Can I exchange a product instead of returning it?
+A: Yes, exchanges are available for size or color variations on eligible
+products within 30 days of delivery, subject to stock availability.
+
+PAYMENTS
+
+Q: What payment methods do you accept?
+A: We accept Visa, Mastercard, American Express, RuPay, UPI, net banking,
+popular digital wallets, and Cash on Delivery (COD) for orders under ₹10,000
+in supported regions.
+
+Q: Is it safe to use my credit card on ShopEasy?
+A: Yes, all transactions are secured with 256-bit SSL encryption and processed
+through PCI-DSS compliant payment gateways. We never store your full card
+details on our servers.
+
+Q: Do you offer EMI (installment) options?
+A: Yes, EMI options are available on orders above ₹3,000 with select banks and
+credit cards. EMI tenure options range from 3 to 12 months, with interest rates
+determined by your bank.
+
+ACCOUNT AND MEMBERSHIP
+
+Q: How do I reset my password?
+A: Click "Forgot Password" on the login page, enter your registered email
+address, and follow the link sent to your inbox to set a new password. The
+reset link is valid for 24 hours.
+
+Q: What is ShopEasy Plus membership?
+A: ShopEasy Plus is our premium membership program priced at ₹499/year. Members
+get free express shipping on all orders, early access to sales, exclusive
+discounts, and a dedicated priority support line.
+
+WARRANTY AND SUPPORT
+
+Q: Do products come with a warranty?
+A: Most electronics and appliances come with a manufacturer warranty ranging
+from 6 months to 2 years, as specified on the product page. Warranty claims
+are handled directly through the manufacturer's authorized service centers,
+and our support team can help you locate the nearest one.
+
+Q: How can I contact customer support?
+A: You can reach us via this chatbot, email at support@shopeasy.example.com,
+or phone at +91-1800-123-4567 (toll-free, available 9 AM to 9 PM IST, all
+days of the week). Average response time for email queries is under 4 hours.
+
+Q: Do you have a physical store?
+A: ShopEasy currently operates as an online-only retailer. We do not have
+physical retail stores, but we have regional warehouses in Chennai, Bangalore,
+Mumbai, and Delhi to ensure faster delivery.

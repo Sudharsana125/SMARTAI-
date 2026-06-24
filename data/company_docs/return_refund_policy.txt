@@ -1,0 +1,95 @@
+SHOPEASY ONLINE STORE — RETURN, REFUND & CANCELLATION POLICY
+Document Version: 2.3 | Effective Date: January 1, 2026
+
+1. OVERVIEW
+This policy outlines the terms and conditions governing returns, refunds, and
+order cancellations for purchases made on ShopEasy. By placing an order, the
+customer agrees to the terms described in this document.
+
+2. RETURN ELIGIBILITY
+
+2.1 Return Window
+Customers may request a return within 30 calendar days from the date of
+delivery, as recorded by our courier partner's proof-of-delivery system.
+
+2.2 Item Condition Requirements
+To be eligible for a return, items must meet ALL of the following criteria:
+  - Unused and unworn, with all original tags attached
+  - In original manufacturer packaging, including accessories and manuals
+  - Accompanied by the original invoice or order confirmation
+  - Free from any damage not present at the time of delivery
+
+2.3 Non-Returnable Categories
+The following categories are NOT eligible for return under any circumstances,
+due to hygiene, safety, or customization reasons:
+  - Innerwear, swimwear, and socks
+  - Perishable goods (food items, plants)
+  - Personalized or custom-engraved products
+  - Digital gift cards and downloadable software
+  - Opened personal care and beauty products
+
+3. RETURN PROCESS
+
+Step 1: Log into your ShopEasy account and navigate to "My Orders."
+Step 2: Select the order and item(s) you wish to return.
+Step 3: Choose a return reason from the dropdown (e.g., "Wrong size,"
+        "Defective item," "Changed my mind," "Item not as described").
+Step 4: Select a refund method: original payment method or ShopEasy Wallet
+        credit (Wallet credit refunds are processed faster, within 24-48 hours).
+Step 5: Schedule a pickup. Our courier partner will collect the item from your
+        registered address within 2-3 business days, free of charge.
+Step 6: Once the item passes quality inspection at our warehouse (typically
+        2-3 business days after pickup), your refund will be initiated.
+
+4. REFUND TIMELINES
+
+| Refund Method            | Processing Time After Inspection |
+|---------------------------|-----------------------------------|
+| ShopEasy Wallet Credit     | 24-48 hours                       |
+| Credit/Debit Card          | 5-7 business days                 |
+| UPI / Net Banking          | 3-5 business days                 |
+| Cash on Delivery (COD)     | 7-10 business days (bank transfer)|
+
+Note: Actual credit to your bank statement may take an additional 2-3 business
+days depending on your bank's processing time, even after ShopEasy initiates
+the refund.
+
+5. DAMAGED OR DEFECTIVE ITEMS
+If you receive a damaged, defective, or incorrect item, please report it within
+48 hours of delivery through "My Orders" > "Report an Issue," along with photos
+of the product and packaging. Verified claims qualify for a full refund or free
+replacement, including waived return shipping, and are prioritized for
+expedited processing (typically resolved within 3-5 business days).
+
+6. ORDER CANCELLATION POLICY
+
+6.1 Before Dispatch
+Orders can be cancelled free of charge any time before the order status
+changes to "Shipped." Cancellation requests submitted after this point cannot
+be guaranteed, although our team will attempt to intercept the shipment.
+
+6.2 After Dispatch
+If an order has already shipped, customers may refuse delivery or initiate a
+standard return once the item is received, following the process in Section 3.
+
+6.3 Cancellation Refunds
+Cancellations made before dispatch are refunded in full within 3-5 business
+days to the original payment method. No cancellation fee applies.
+
+7. EXCHANGES
+Exchanges (e.g., for a different size or color) are available for eligible
+products within the 30-day return window, subject to stock availability at
+the time of request. If the desired variant is unavailable, a refund will be
+processed instead.
+
+8. RETURN SHIPPING COSTS
+Return shipping is FREE for the following reasons: defective product, wrong
+item shipped, damaged in transit, or item significantly not as described.
+For returns due to "changed my mind" or incorrect size selection, a nominal
+return pickup fee of ₹49 may be deducted from the refund amount.
+
+9. CONTACT FOR DISPUTES
+If a return or refund is rejected and the customer disagrees with the
+decision, they may escalate the matter by emailing
+escalations@shopeasy.example.com with their order number. Escalated cases are
+reviewed by a senior support specialist within 2 business days.
