@@ -158,16 +158,17 @@ class RAGPipeline:
 
         full_prompt = f"{system_prompt}\n\n{history_text}Customer: {query}\nAssistant:"
 
-        url = url = f"https://generativelanguage.googleapis.com/v1/models/{self.model_name}:generateContent?key={api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model_name}:generateContent?key={api_key}"
         payload = {
             "contents": [{"parts": [{"text": full_prompt}]}],
             "generationConfig": {
                 "temperature": self.temperature,
                 "maxOutputTokens": 800,
+                "thinkingConfig": {"thinkingBudget": 0},
             }
         }
 
-        response = requests.post(url, json=payload, timeout=30)
+        response = requests.post(url, json=payload, timeout=120)
 
         if response.status_code != 200:
             raise LLMProviderError(f"Gemini API error {response.status_code}: {response.text}")

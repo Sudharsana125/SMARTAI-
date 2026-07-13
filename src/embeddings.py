@@ -1,64 +1,41 @@
 """
 embeddings.py
 =============
-Wraps Sentence Transformers to provide a consistent embedding interface for
+Wraps the Google Gemini API to provide a consistent embedding interface for
 both document chunks (indexing time) and user queries (retrieval time).
 
-Using a local Sentence Transformers model (rather than a paid embedding
-API) keeps the embedding step free and fast, which is ideal for a
-demo/college-project deployment, while still producing high-quality
-multilingual-capable vectors.
+This bypasses the need for local sentence-transformers models, avoiding
+network blocks when downloading models from Hugging Face.
 """
 
-from functools import lru_cache
 from typing import List
+import requests
+import json
 
-from sentence_transformers import SentenceTransformer
-
-from src.utils import get_logger
+from src.utils import get_logger, get_env_var
 
 logger = get_logger(__name__)
 
-# 'paraphrase-multilingual-MiniLM-L12-v2' supports 50+ languages including
-# English, Tamil and Hindi, and produces 384-dimensional embeddings with a
-# good speed/quality trade-off for a CPU-friendly demo deployment.
-DEFAULT_MODEL_NAME = "paraphrase-multilingual-MiniLM-L12-v2"
+DEFAULT_MODEL_NAME = "models/gemini-embedding-2"
 
 
 class EmbeddingGenerator:
     """
-    Generates vector embeddings for text using a Sentence Transformers
-    model. Wraps the model as a singleton-per-process via ``lru_cache`` on
-    the loader so the (relatively large) model is loaded into memory only
-    once, even across multiple ``EmbeddingGenerator`` instantiations during
-    a Streamlit re-run.
+    Generates vector embeddings for text using the Google Gemini API.
     """
 
     def __init__(self, model_name: str = DEFAULT_MODEL_NAME) -> None:
         """
         Args:
-            model_name: Name of the Sentence Transformers model to load
-                from the HuggingFace hub.
+            model_name: Name of the Gemini embedding model.
         """
         self.model_name = model_name
-        self._model = self._load_model(model_name)
-
-    @staticmethod
-    @lru_cache(maxsize=2)
-    def _load_model(model_name: str) -> SentenceTransformer:
-        """
-        Load (and cache) the Sentence Transformers model.
-
-        Args:
-            model_name: HuggingFace model identifier.
-
-        Returns:
-            Loaded ``SentenceTransformer`` instance.
-        """
-        logger.info("Loading embedding model '%s' (first load may take a while)...", model_name)
-        model = SentenceTransformer(model_name)
-        logger.info("Embedding model '%s' loaded successfully.", model_name)
-        return model
+        self.api_key = get_env_var("GEMINI_API_KEY")
+        if not self.api_key:
+            logger.error("GEMINI_API_KEY is not set. Embeddings will fail.")
+        
+        # Gemini text-embedding-004 produces 768-dimensional embeddings
+        self._dimension = 768
 
     def embed_texts(self, texts: List[str]) -> List[List[float]]:
         """
@@ -72,13 +49,32 @@ class EmbeddingGenerator:
         """
         if not texts:
             return []
-        embeddings = self._model.encode(
-            texts,
-            show_progress_bar=False,
-            convert_to_numpy=True,
-            normalize_embeddings=True,
-        )
-        return embeddings.tolist()
+            
+        url = f"https://generativelanguage.googleapis.com/v1beta/{self.model_name}:batchEmbedContents?key={self.api_key}"
+        
+        requests_body = []
+        for t in texts:
+            requests_body.append({
+                "model": self.model_name,
+                "content": {"parts": [{"text": t}]}
+            })
+            
+        payload = {"requests": requests_body}
+        
+        try:
+            response = requests.post(url, json=payload, timeout=30)
+            if response.status_code != 200:
+                raise Exception(f"Gemini API Error: {response.text}")
+                
+            data = response.json()
+            embeddings = []
+            for item in data.get("embeddings", []):
+                embeddings.append(item["values"])
+            return embeddings
+            
+        except Exception as e:
+            logger.error(f"Failed to generate embeddings via Gemini: {e}")
+            raise
 
     def embed_query(self, query: str) -> List[float]:
         """
@@ -90,15 +86,9 @@ class EmbeddingGenerator:
         Returns:
             Embedding vector as a list of floats.
         """
-        embedding = self._model.encode(
-            [query],
-            show_progress_bar=False,
-            convert_to_numpy=True,
-            normalize_embeddings=True,
-        )
-        return embedding[0].tolist()
+        return self.embed_texts([query])[0]
 
     @property
     def dimension(self) -> int:
         """Return the dimensionality of vectors produced by this model."""
-        return self._model.get_sentence_embedding_dimension()
+        return self._dimension

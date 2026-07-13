@@ -206,14 +206,36 @@ class VectorStore:
     def clear(self) -> None:
         """
         Delete all chunks from the collection, resetting the knowledge
-        base. The collection itself is recreated empty.
+        base. Tries to drop and recreate the collection; if that fails
+        (e.g. due to SQLite lock under Flask debug reloader), falls back
+        to deleting all document IDs from the existing collection.
         """
+        import time
+
+        # Strategy 1: Drop and recreate (cleanest)
+        for attempt in range(3):
+            try:
+                self._client.delete_collection(self.collection_name)
+                self._collection = self._client.get_or_create_collection(
+                    name=self.collection_name,
+                    metadata={"hnsw:space": "cosine"},
+                )
+                logger.info("Vector store collection '%s' cleared (drop+recreate).", self.collection_name)
+                return
+            except Exception as exc:
+                logger.warning(
+                    "Clear attempt %d/3 (drop) failed: %s — retrying...", attempt + 1, exc
+                )
+                time.sleep(0.5)
+
+        # Strategy 2: Fallback — delete all IDs from the collection
         try:
-            self._client.delete_collection(self.collection_name)
-            self._collection = self._client.get_or_create_collection(
-                name=self.collection_name,
-                metadata={"hnsw:space": "cosine"},
+            all_ids = self._collection.get()["ids"]
+            if all_ids:
+                self._collection.delete(ids=all_ids)
+            logger.info(
+                "Vector store collection '%s' cleared (bulk delete, %d docs).",
+                self.collection_name, len(all_ids),
             )
-            logger.info("Vector store collection '%s' cleared.", self.collection_name)
         except Exception as exc:
             raise VectorStoreError(f"Failed to clear vector store: {exc}") from exc
